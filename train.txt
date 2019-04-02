@@ -1,0 +1,44 @@
+1.—µ¡∑
+.\bin\caffe.exe train --solver=examples/cifar10/cifar10_full_solver.prototxt 
+
+.\bin\caffe.exe train --solver=examples/mnist/lenet_solver.prototxt 
+
+2.≤‚ ‘
+.\bin\caffe.exe test --model=examples/cifar10/cifar10_full_train_test.prototxt  --weights=examples/cifar10/cifar10_full_iter_60000.caffemodel.h5 -gpu=0
+
+.\bin\caffe.exe test --model=examples/mnist/lenet_train_test.prototxt  --weights=examples/mnist/lenet_iter_10000.caffemodel.h5 -gpu=0
+
+3.ª≠Õº
+
+python draw_net.py lenet_train_test.prototxt lenet.jpg --rankdir=BT
+
+
+
+Ω¯»ÎE:\qxyang\caffe\Build\x64\Release ¬∑æ≠
+
+caffe.exe train --solver=E:\liuaowen\caffe\caffe-windows-master\models\bvlc_alexnet\solver.prototxt --snapshot=E:\liuaowen\caffe\caffe-windows-master\Mydata\caffe_alexnet_train_iter_10000.solverstate
+
+convert_imageset.exe --resize_height=256 --resize_width=256 --shuffle --backend="leveldb" E:\liuaowen\imageNet\20\train\ E:\liuaowen\imageNet\20\train.txt E:\liuaowen\imageNet\20\train\train_leveldb
+
+convert_imageset.exe --resize_height=256 --resize_width=256 --shuffle --backend="leveldb" E:\liuaowen\imageNet\20\val\ E:\liuaowen\imageNet\20\val.txt E:\liuaowen\imageNet\20\val\val_leveldb
+
+compute_image_mean.exe --backend="leveldb" E:\liuaowen\imageNet\20\train\train_leveldb E:\liuaowen\imageNet\20\train\train_mean.binaryproto
+
+
+3.ª≠Õº
+
+python draw_net.py lenet_train_test.prototxt lenet.jpg --rankdir=BT
+
+
+0£∫Test accuracy vs. Iters
+1: Test accuracy vs. Seconds
+2: Test loss vs. Iters
+3: Tset loss vs. Seconds
+4: Train learning rate vs. Iters
+5: Train learning rate vs. Seconds
+6: Train loss vs. Iters
+7: Train loss vs. Seconds
+8: learning rate vs. Iters
+9: learning rate vs. Seconds
+
+python plot_training_log.py 6 trainloss_iter.png INFO2017-11-08T17-37-46.log
