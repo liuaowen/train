@@ -44,3 +44,4 @@ python draw_net.py lenet_train_test.prototxt lenet.jpg --rankdir=BT
 python plot_training_log.py 6 trainloss_iter.png INFO2017-11-08T17-37-46.log
 
 wdd
+222
